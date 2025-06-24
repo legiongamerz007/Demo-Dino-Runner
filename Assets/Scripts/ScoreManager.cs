@@ -1,16 +1,20 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public Text scoreText;
+    private int score;
+
     void Start()
     {
-        
+        score = 0;
+        InvokeRepeating("IncreaseScore", 1f, 1f);
     }
 
-    // Update is called once per frame
-    void Update()
+    void IncreaseScore()
     {
-        
+        score += 1;
+        scoreText.text = "Score: " + score;
     }
 }

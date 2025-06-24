@@ -2,15 +2,13 @@ using UnityEngine;
 
 public class GroundScroller : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public float scrollSpeed = 5f;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        transform.Translate(Vector2.left * scrollSpeed * Time.deltaTime);
+
+        if (transform.position.x < -20)
+            transform.position += new Vector3(40, 0, 0);
     }
 }

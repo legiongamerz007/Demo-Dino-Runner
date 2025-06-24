@@ -2,15 +2,17 @@ using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public GameObject obstaclePrefab;
+    public float spawnRate = 2f;
+    private float timer;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        timer += Time.deltaTime;
+        if (timer >= spawnRate)
+        {
+            Instantiate(obstaclePrefab, new Vector3(10, -2.5f, 0), Quaternion.identity);
+            timer = 0f;
+        }
     }
 }
