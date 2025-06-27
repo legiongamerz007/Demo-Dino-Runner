@@ -6,8 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Main.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Landing.unity
+    guid: 2f92318f1d2a243c1a6a72bbd9e0b02b
+  - enabled: 1
+    path: Assets/Scenes/DinoSelection.unity
+    guid: 03d527c1f7f9842c3a3827a7a4cab219
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
   m_UseUCBPForAssetBundles: 0

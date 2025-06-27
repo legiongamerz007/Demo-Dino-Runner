@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 871ae124afff74823bbad71596e9f078, type: 3}
+  m_Name: Dino 1
+  m_EditorClassIdentifier: 
+  dinoName: Cute T-Rex
+  dinoSprite: {fileID: -5241509354901313845, guid: ee124439e6d964d7382bf17c94073a5e, type: 3}
+  speed: 5
+  jumpForce: 2
