@@ -16,6 +16,14 @@ public class ObstacleSpawner : MonoBehaviour
 
     void Update()
     {
+        if (player == null)
+        {
+            var playerObj = GameObject.FindGameObjectWithTag("Player");
+            if (playerObj != null)
+                player = playerObj.transform;
+            else
+                return; // Wait until player exists
+        }
         timer += Time.deltaTime;
         if (timer >= spawnInterval)
         {

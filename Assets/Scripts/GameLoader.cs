@@ -13,6 +13,11 @@ public class GameLoader : MonoBehaviour
             var dinoObj = Instantiate(dinoPrefab, playerSpawnPoint.position, Quaternion.identity);
             var controller = dinoObj.GetComponent<PlayerDinoController>();
             controller.Setup(selectedDino);
+
+            // Set camera follow target
+            var camFollow = Camera.main.GetComponent<CameraFollow>();
+            if (camFollow != null)
+                camFollow.target = dinoObj.transform;
         }
     }
 } 
