@@ -40,9 +40,18 @@ public class GameManager : MonoBehaviour
         // obstacleSpawner.SetActive(true);
     }
 
+    public void RestartPlayer(GameObject player)
+    {
+        // Optionally reset player state, position, etc. (handled in PlayerDinoController for now)
+        player.SetActive(true);
+    }
+
     public void EndGame(bool playerWon)
     {
         isGameActive = false;
         // Show win/lose UI, handle rewards, etc.
+        if (dino != null)
+            dino.SetActive(false);
+        // Optionally show a game over UI here
     }
 }

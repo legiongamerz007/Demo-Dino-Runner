@@ -6,6 +6,8 @@ public class PlayerDinoController : MonoBehaviour
     private DinoData dinoData;
     private Rigidbody2D rb;
     private bool isGrounded = true;
+    private int lives = 3;
+    private Vector3 respawnPosition;
 
     public void Setup(DinoData data)
     {
@@ -19,6 +21,11 @@ public class PlayerDinoController : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+    }
+
+    void Start()
+    {
+        respawnPosition = transform.position;
     }
 
     void Update()
@@ -38,6 +45,39 @@ public class PlayerDinoController : MonoBehaviour
     {
         if (collision.contacts[0].normal.y > 0.5f)
             isGrounded = true;
-        // Handle obstacle/collectible collision here
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Collectible"))
+        {
+            // Increase score and destroy collectible
+            var scoreManager = FindObjectOfType<ScoreManager>();
+            if (scoreManager != null)
+            {
+                scoreManager.AddScore(10); // +10 per coin
+            }
+            Destroy(other.gameObject);
+        }
+        else if (other.CompareTag("Obstacle"))
+        {
+            lives--;
+            if (lives > 0)
+            {
+                // Respawn at last position
+                transform.position = respawnPosition;
+                rb.velocity = Vector2.zero;
+            }
+            else
+            {
+                // End game
+                var gameManager = FindObjectOfType<GameManager>();
+                if (gameManager != null)
+                {
+                    gameManager.EndGame(false);
+                }
+                gameObject.SetActive(false);
+            }
+        }
     }
 } 
